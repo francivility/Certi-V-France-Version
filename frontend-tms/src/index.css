@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-serif: 'Inter', system-ui, -apple-system, sans-serif;
+
+  /* Professional, less-curvy corner radii for the whole TMS */
+  --radius-xs: 0.0625rem;
+  --radius-sm: 0.125rem;
+  --radius-md: 0.1875rem;
+  --radius-lg: 0.25rem;
+  --radius-xl: 0.375rem;
+  --radius-2xl: 0.5rem;
+  --radius-3xl: 0.625rem;
+  --radius-full: 9999px;
+
+  /* Navy ramp anchored to the applicant-side identity color (#0E2036) */
+  --color-navy-50: #f0f4f8;
+  --color-navy-100: #dde6ee;
+  --color-navy-200: #b9cbdb;
+  --color-navy-300: #8aa5bf;
+  --color-navy-400: #5c7fa0;
+  --color-navy-500: #355c82;
+  --color-navy-600: #234567;
+  --color-navy-700: #17324f;
+  --color-navy-800: #0e2036;
+  --color-navy-900: #0a1729;
+
+  /* Official seal gold accent — matches applicant Login/Register/Home */
+  --color-gold: #c9a227;
+  --color-gold-light: #f4e9c9;
+  --color-gold-dark: #9c7d1c;
+
+  --color-gov-blue: #2563eb;
+  --color-gov-blue-light: #dbeafe;
+  --color-gov-blue-dark: #1e40af;
+
+  --color-gov-green: #16a34a;
+  --color-gov-green-light: #dcfce7;
+
+  --color-gov-red: #dc2626;
+  --color-gov-red-light: #fee2e2;
+
+  --color-gov-amber: #d97706;
+  --color-gov-amber-light: #fef3c7;
+
+  --color-gov-gray-50: #f8fafc;
+  --color-gov-gray-100: #f1f5f9;
+  --color-gov-gray-200: #e2e8f0;
+  --color-gov-gray-300: #cbd5e1;
+  --color-gov-gray-400: #94a3b8;
+  --color-gov-gray-500: #64748b;
+  --color-gov-gray-600: #475569;
+  --color-gov-gray-700: #334155;
+  --color-gov-gray-800: #1e293b;
+  --color-gov-gray-900: #0f172a;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--color-gov-gray-100);
+    color: var(--color-gov-gray-800);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Slim scrollbar for the side drawer */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--color-gov-gray-300);
+  border-radius: 9999px;
+}
+
+/*
+ * Responsive tables: below monitor width the app runs on smaller laptops,
+ * so tables give up their fixed minimum width and let their columns
+ * compress instead of growing a horizontal scrollbar. Text wraps naturally
+ * so no content is ever clipped.
+ */
+@media (max-width: 1535px) {
+  main table {
+    min-width: 0 !important;
+  }
+
+  main table th,
+  main table td {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+  }
+}
